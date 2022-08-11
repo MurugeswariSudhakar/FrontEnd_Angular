@@ -1,0 +1,18 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- loop Over the collection of attractions-->
+                <div *ngFor="let temp of attractions" class="col-md-3">
+                    <div class="Attraction box">
+                        <table>
+                            <tr>
+                                <td>{{temp.name}}</td>
+                                <td>{{temp.state}}</td>
+                                <td>{{temp.website}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
