@@ -1,18 +1,59 @@
-<div class="main-content">
-    <div class="section-content section-content-p30">
-        <div class="container-fluid">
-            <div class="row">
+<div>
+    <h1>ATTRACTION LIST </h1>
+    <a routerLink = "../newAttraction">
+        <button type="button">Create new Attraction</button>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 10%">#</th>
+                <th style="width: 20%">Attraction Name</th>
+                <th style="width: 30%">Description</th>
+                <th style="width: 20%">Address1</th>
+                <th style="width: 20%">Address2</th>                            
+                <th style="width: 10%">City</th>
+                <th style="width: 10%">State</th>
+                <th style="width: 10%">Country</th>
+                <th style="width: 10%">ZipCode</th>
+                <th style="width: 10%">website</th>
+                <th style="width: 30%">image</th>
+                <th style="width: 10%"></th>
+            </tr>
+        </thead>
 
-                <!-- loop Over the collection of attractions-->
-                <div *ngFor="let temp of attractions" class="col-md-3">
-                    <div class="Attraction box">
-                        <table>
-                            <tr>
-                                <td>{{temp.name}}</td>
-                                <td>{{temp.state}}</td>
-                                <td>{{temp.website}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+        <tbody>
+            <tr *ngFor = "let attraction of attractions">
+                <td>{{attraction.id}}</td>
+                <td>{{attraction.name}}</td>
+                <td>{{attraction.description}}</td>
+                <td>{{attraction.address1}}</td>  
+                <td>{{attraction.address2}}</td>
+                <td>{{attraction.city}}</td>
+                <td>{{attraction.state}}</td>
+                <td>{{attraction.country}}</td>
+                <td>{{attraction.zipcode}}</td>
+                <td>{{attraction.website}}</td>
+                <td>{{attraction.image}}</td>
+                <td style="white-space: nowrap">
+                    <a routerLink="../edit/{{attraction.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                    <button (click)="deleteAttraction(attraction.id)"                 
+                           class="btn btn-sm btn-danger btn-delete-attraction" [disabled]="attraction.isDeleting">
+                        <span *ngIf="attraction.isDeleting" class="spinner-border spinner-border-sm"></span>
+                        <span *ngIf="!attraction.isDeleting">Delete</span>
+                    </button>
+                </td>
+                <!-- <td>
+                    <button type="button">Update</button>
+                      (click)="delete(attraction.id)" 
+                    <button type="button">Remove</button>
+                </td> -->
+            </tr>
+            <tr *ngIf="">
+                <td colspan="4" class="text-center">
+                    <span class="spinner-border spinner-border-lg align-center"></span>
+                </td>
+            </tr>
+        </tbody>       
+    </table>
+</div>
                 
