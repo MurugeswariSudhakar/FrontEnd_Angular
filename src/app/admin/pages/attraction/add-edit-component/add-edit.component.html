@@ -1,0 +1,94 @@
+<h1 *ngIf="isAddMode">Add Attraction</h1>
+<h1 *ngIf="!isAddMode">Edit Attraction</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+       
+        <div class="form-group col-5">
+            <label>Attraction Name</label>
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Attraction Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-5">
+            <label>Description</label>
+            <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-5">
+            <label>Address 1</label>
+            <input type="text" formControlName="address1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" />
+        </div>
+        <div class="form-group col-5">
+            <label>Address 2</label>
+            <input type="text" formControlName="address2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-5">
+            <label>Country</label>
+            <select (change)="filterCountries($event); onChangeListState($event)" 
+                   formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                   <option value="" disabled selected>Select Country</option>
+                   <option *ngFor="let country of countryNames" 
+                       [value]="country.name">{{country.name}}
+                   </option>
+            </select>
+            <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                <div *ngIf="f.country.errors.required">Country is required</div>
+            </div>
+        </div>
+   
+        <div class="form-group col-5">
+           <label>State</label>
+            <select (change)= "onChangeListCity($event)" 
+               formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+               <option value="" disabled selected>Select State</option>
+               <option *ngFor="let state of stateNames" 
+                   [value]="state.name">{{state.name}}
+               </option>
+            </select>
+        </div>
+        <div class="form-group col-5">
+            <label>City</label>
+             <select (change)="onChangeStoreDetails($event)" 
+                formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                <option value="" disabled selected>Select City</option>
+                <option *ngFor="let city of cityNames" 
+                    [value]="city.name">{{city.name}}
+                </option>
+             </select>
+         </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group col-5">
+            <label>ZipCode</label>
+            <input type="text" formControlName="zipcode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.zipcode.errors }" />
+        </div>
+        <div class="form-group col-5">
+            <label>Website</label>
+            <input type="text" formControlName="website" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.website.errors }" />
+            <div *ngIf="submitted && f.website.errors" class="invalid-feedback">
+                <div *ngIf="f.website.errors.required">Website is required</div>
+            </div>
+        </div>
+        <div class="form-group col-5">
+            <label>Image</label>
+            <input type="text" formControlName="image" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.image.errors }" />
+        </div>
+        <div class="form-group col-5" formGroupName="user">
+            <label for="id">User Id</label>
+            <input type="text" id="id" formControlName="id"/><br/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Save
+        </button>
+        <a routerLink="/admin" class="btn btn-link">Cancel</a>
+    </div>
+</form>

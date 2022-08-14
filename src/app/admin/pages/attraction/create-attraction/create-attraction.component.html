@@ -1,0 +1,73 @@
+<div class="main-content">
+  <h1>NEW ATTRACTION</h1>
+   <br><br>
+      <div class="section-content section-content-p30">
+        <div class="form-group">
+          <form [formGroup]="attractionForm" (ngSubmit)="onSubmit()">
+              <label for="name">Attraction Name : </label>
+              <input 
+                type="text" 
+                id="name" 
+                formControlName="name"/>
+                <!-- <div *ngIf="fc.name.touched && fc.name.invalid" class="alert alert-danger">
+                  <div *ngIf="fc.name.errors?.required">Name is required.</div>
+                </div> -->
+              <br/>
+              <label for="description">Description : </label>
+              <input type="text" id="description" formControlName="description"/><br/>
+              <label for="address1">Address 1 : </label>
+              <input type="text" id="address1" formControlName="address1"/><br/>
+              <label for="address2">Address 2 : </label>
+              <input type="text" id="address2" formControlName="address2"/><br/>
+              
+              <label for="country">Country : </label>
+              <br><br>
+              
+              <select (change)="filterCountries($event); onChangeListState($event)"
+                      class="form-control" 
+                      formControlName="country"
+                      id="country" style="max-width:30%">
+                <option value="" disabled selected>Select Country</option>
+                <option *ngFor="let country of countryNames" 
+                    [value]="country.name">{{country.name}}
+                </option>
+           </select>
+           <label for="state">State : </label>
+
+           <select (change)="onChangeListCity($event)"
+                      class="form-control" 
+                      formControlName="state"
+                      id="state" style="max-width:30%">
+                <option value="" disabled selected>Select State</option>
+                <option *ngFor="let state of stateNames" 
+                    [value]="state.name">{{state.name}}</option>
+           </select>
+
+           <label for="city">City : </label>
+           <select (change)="onChangeStoreDetails($event)"
+                      class="form-control" 
+                      formControlName="city"
+                      id="city" style="max-width:30%">
+                <option value="" disabled selected>Select City</option>
+                <option *ngFor="let city of cityNames" 
+                    [value]="city.name">{{city.name}}</option>
+           </select>
+           
+
+           <br><br>
+              <label for="zipcode">Zipcode : </label>
+              <input type="text" id="zipcode" formControlName="zipcode"/><br/>
+              <label for="website">Website : </label>
+              <input type="text" id="website" formControlName="website"/><br/>
+              <label for="image">image : </label>
+              <input type="text" id="image" formControlName="image"/><br/>
+             
+              <div formGroupName="user"> <b>User</b><br/>
+                <label for="id">Id: </label>
+                <input type="text" id="id" formControlName="id"/><br/>
+              </div>
+              <button type="submit" [disabled]="!attractionForm.valid">Submit</button>
+          </form>
+        </div>
+    </div>
+</div>

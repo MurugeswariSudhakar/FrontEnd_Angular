@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export class Attraction {
     id!:number;
     name!: string;
@@ -10,4 +12,6 @@ export class Attraction {
     zipcode!:number;
     website!:string;
     image!:string;
+    user!:User;
+    isDeleting: boolean = false;
 }
