@@ -1,0 +1,88 @@
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a routerLink="">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a routerLink="admin/userlist">userlist</a></li>
+          
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Business Owner?</a></li>
+          <li><a href="#">SignUp</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+<div>
+    <h3>USER LIST </h3>
+    <a routerLink = "../newUser">
+        <button type="button">Create new User</button>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 3%">#</th>
+                <th style="width: 20%">FirstName</th>
+                <th style="width: 20%">LastName</th>
+                <th style="width: 10%">State</th>
+                <th style="width: 10%">Country</th>
+                <th style="width: 10%">Hobbies</th>
+                <th style="width: 10%">Personal Details</th>
+                <th style="width: 30%">Profile Photo</th>
+                <th style="width: 10%"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor = "let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.firstname}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.state}}</td>
+                <td>{{user.country}}</td>
+                <td>{{user.hobbies}}</td>
+                <td>{{user.personaldetails}}</td>
+                <td>{{user.profilephoto}}</td>
+                <td style="white-space: nowrap">
+                    <a routerLink="../edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                    <button (click)="deleteUser(user.id)"                 
+                           class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
+                        <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
+                        <span *ngIf="!user.isDeleting">Delete</span>
+                    </button>
+                </td>
+                <!-- <td>
+                    <button type="button">Update</button>
+                      (click)="delete(attraction.id)" 
+                    <button type="button">Remove</button>
+                </td> -->
+            </tr>
+            <tr *ngIf="">
+                <td colspan="4" class="text-center">
+                    <span class="spinner-border spinner-border-lg align-center"></span>
+                </td>
+            </tr>
+        </tbody>       
+    </table>
+</div>
+                
