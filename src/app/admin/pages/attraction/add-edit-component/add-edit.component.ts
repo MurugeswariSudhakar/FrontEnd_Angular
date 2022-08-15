@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Country, City, State } from 'country-state-city';
-import { getStatesOfCountry } from 'country-state-city/dist/lib/state';
+import { Country,City,State } from 'country-state-city';
+
+//import { getStatesOfCountry } from 'country-state-city/dist/lib/state';
 import { first } from 'rxjs';
 import { SelectedLocationDetail } from 'src/app/core/models/SelectedLocationDetail';
 import { AttractionService } from 'src/app/core/services/attraction.service';
