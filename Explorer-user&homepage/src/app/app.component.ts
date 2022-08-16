@@ -11,7 +11,5 @@ export class AppComponent {
 
   constructor(private router: Router) {}
 
-  gotoUserList(){
-      this.router.navigate(['admin/searchbyname']);  // define your component where you want to go
-  }
+  
 }

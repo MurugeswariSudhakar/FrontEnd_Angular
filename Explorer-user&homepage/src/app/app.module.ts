@@ -10,6 +10,10 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { HomepageComponent } from './home/homepage/homepage.component';
+import { HomeModule } from './home/home.module';
+import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './login/login/login.component';
+import { LoginModule } from './login/login.module';
 
 
 
@@ -26,7 +30,10 @@ import { HomepageComponent } from './home/homepage/homepage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminModule
+    AdminModule,
+    HomeModule,
+    SharedModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

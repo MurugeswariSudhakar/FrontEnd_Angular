@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomepageComponent } from './home/homepage/homepage.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { SharedModule } from './shared/shared.module';
 
 
 

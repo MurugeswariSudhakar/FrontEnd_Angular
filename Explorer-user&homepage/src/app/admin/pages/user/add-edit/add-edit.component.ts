@@ -48,7 +48,8 @@ selectedLocation: SelectedLocationDetail = new SelectedLocationDetail;
            profilephoto:[''],
            signup:new FormGroup(
             {
-              id:new FormControl('',[Validators.required])
+              email:new FormControl('',[Validators.required]),
+              password:new FormControl()
             }
            )
 
@@ -76,7 +77,7 @@ OnSubmit(){
 
   this.loading = true;
   if(this.isAddMode){
-    this.createUser();
+    this.updateUser();
       }else{
         this.updateUser();
       }

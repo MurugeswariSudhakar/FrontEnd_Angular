@@ -24,3 +24,15 @@ footer {
   display: none; 
 }
 }
+/*For div center alignment*/
+.containercenter {
+  display: flex;
+  justify-content: center;
+}
+
+/* To make label and textbox alignment */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
