@@ -24,10 +24,10 @@ headers = new HttpHeaders({
     return this.http.get<User[]>(url);
     }
 
-addUser(use:any){
+addUser(user:any){
   const url= `${this.baseUrl}/newUser`;
   console.log(url);
-  return this.http.post<any>(url,use);
+  return this.http.post<any>(url,user,{headers:this.headers});
 }
 
 getById(id:any):Observable<User>{
@@ -49,7 +49,7 @@ errorHandler(error:any){
 }
 
 update(id:any,user:any): Observable<User>{
-  const url= `${this.baseUrl}/updateUser/`;
+  const url= `${this.baseUrl}/updateUser`;
   console.log(url);
   return this.http.put<User>(`${url}/${id}`,user)
                   .pipe(catchError(this.errorHandler));
@@ -57,7 +57,7 @@ update(id:any,user:any): Observable<User>{
 
 
 delete(id:any){
-  const url= `${this.baseUrl}/deleteUser/`;
+  const url= `${this.baseUrl}/deleteUser`;
   console.log(url);
   return this.http.delete<User>(`${url}/${id}`)
       .pipe(catchError(this.errorHandler));

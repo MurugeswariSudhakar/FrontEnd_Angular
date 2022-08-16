@@ -1,3 +1,5 @@
+import { Signup } from "./signup";
+
 export class User {
     id: number;
     firstname: string;
@@ -7,7 +9,7 @@ export class User {
     hobbies: string;
     personaldetails: string;
     profilephoto: string;
-    //signup:Signup;
+    signup:Signup;
     isDeleting: boolean =false;
 
 }
