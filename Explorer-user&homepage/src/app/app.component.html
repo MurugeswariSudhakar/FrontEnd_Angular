@@ -1,2 +1,46 @@
 
-<router-outlet></router-outlet>
+<div id="app">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" routerLink="">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+
+          <li class="active"><a routerLink="">Home</a></li> 
+      <!-- <ul class="navbar-nav mr-auto" routerLinkActive="active"> -->
+         <li><a  *ngIf="showAdminBoard" routerLink="admin">Admin Board</a> </li>
+        <!-- <li><a *ngIf="showUserBoard" routerLink="user">User Board</a></li> -->
+        <li ><a *ngIf="isLoggedIn" routerLink="user">User</a></li>
+      <!-- </ul> -->
+    </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="!isLoggedIn">
+        <li><a href="#">Business Owner?</a></li>
+        <li><a  routerLink="register">Sign Up</a></li>
+        <li><a routerLink="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+  
+      <ul class="nav navbar-nav navbar-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a  routerLink="profile">Welcome,{{ username }}!</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
+      
+      </div>
+      </div>
+    
+    </nav>
+  
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { AddEditComponent } from './pages/user/add-edit/add-edit.component';
 import { AdminComponent } from './pages/admin/admin.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateUserComponent } from './pages/user/create-user/create-user.component';
 
 
@@ -23,7 +23,9 @@ import { CreateUserComponent } from './pages/user/create-user/create-user.compon
     CommonModule,
     AdminRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  exports:[UserListComponent]
 })
 export class AdminModule { }

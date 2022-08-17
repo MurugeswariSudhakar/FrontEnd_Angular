@@ -1,0 +1,67 @@
+<p>search-location works!</p>
+
+
+<form [formGroup]="form" (ngSubmit)="OnSubmit()">
+<div class="form-row">
+    <div class="form-group col-5">
+        <label>Country</label>
+        <select (change)="filterCountries($event); onChangeListState($event)" 
+               formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+               <option value="" disabled selected>Select Country</option>
+               <option *ngFor="let country of countryNames" 
+                   [value]="country.name">{{country.name}}
+               </option>
+        </select>
+        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+            <div *ngIf="f.country.errors.required">Country is required</div>
+        </div>
+    </div>
+</div>
+    <div class="form-group col-5">
+        <label>State</label>
+         <select (change)= "onChangeListCity($event)" 
+            formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+            <option value="" disabled selected>Select State</option>
+            <option *ngFor="let state of stateNames" 
+                [value]="state.name">{{state.name}}
+            </option>
+         </select>
+     </div>
+
+     <div class="form-group col-5">
+        <label>City</label>
+         <select (change)="onChangeStoreDetails($event)" 
+            formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+            <option value="" disabled selected>Select City</option>
+            <option *ngFor="let city of cityNames" 
+                [value]="city.name">{{city.name}}
+            </option>
+         </select>
+     </div>
+
+
+
+     <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Search
+        </button>
+        <a routerLink="home" class="btn btn-link">Cancel</a>
+    </div>
+</form>
+
+<div>
+    <!-- Google Map Copied Code -->
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059932971!2d-74.25986960987825!3d40.69714940934781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1660709369519!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+width="400"
+height="300"
+frameborder="0"
+style="border:0;"
+allowfullscreen=""
+aria-hidden="false"
+tabindex="0"></iframe>
+</div>
+
+
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key={API_KEY}&libraries=places"></script> -->

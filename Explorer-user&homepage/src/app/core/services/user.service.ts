@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable , catchError,throwError} from 'rxjs';
 import { User } from '../models/user';
 import {map} from 'rxjs/operators';
-import { ConfigService } from './config.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +14,9 @@ export class UserService {
   private config:any;
 users:any=[];
 headers = new HttpHeaders({
-  "Content-Type":"application/json"
-});
-  constructor(private http:HttpClient,private configService:ConfigService) { }
+  "Content-Type":"application/json",
+ });
+  constructor(private http:HttpClient) { }
 
   getUserList():Observable<User[]>{
     const url= `${this.baseUrl}/users`;

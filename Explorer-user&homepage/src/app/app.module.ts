@@ -14,6 +14,16 @@ import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login/login.component';
 import { LoginModule } from './login/login.module';
+import { RegisterComponent } from './register/register.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { AdminRoutingModule } from './admin/admin-routing.module';
+import { ProfileComponent } from './profile/profile.component';
+import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { MapCompComponent } from './map-comp/map-comp.component';
+import { SearchLocationComponent } from './search-location/search-location.component';
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -23,7 +33,13 @@ import { LoginModule } from './login/login.module';
     HeaderComponent,
     FooterComponent,
     CarouselComponent,
-    HomepageComponent
+    HomepageComponent,
+    RegisterComponent,
+    BoardAdminComponent,
+    BoardUserComponent,
+    ProfileComponent,
+    MapCompComponent,
+    SearchLocationComponent
     
     
   ],
@@ -32,10 +48,13 @@ import { LoginModule } from './login/login.module';
     AppRoutingModule,
     AdminModule,
     HomeModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    AdminRoutingModule,
+    ReactiveFormsModule
   
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
