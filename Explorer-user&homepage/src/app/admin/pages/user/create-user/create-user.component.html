@@ -1,0 +1,48 @@
+<p>create-user works!</p>
+
+<div class="main-content">
+    <h1>NEW USER</h1>
+     <br><br>
+        <div class="section-content section-content-p30">
+          <div class="form-group">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <label for="firstname"> FirstName: </label>
+                <input type="text" id="firstname" formControlName="firstname"/><br/>
+                <label for="lastname">LastName : </label>
+                <input type="text" id="lastname" formControlName="lastname"/><br/>
+                <label for="state">State : </label>
+                <input type="text" id="state" formControlName="state"/><br/>
+                <label for="country">Country : </label>
+                <input type="text" id="country" formControlName="country"/><br/>
+                <label for="hobbies">Hobbies : </label>
+                <input type="text" id="hobbies" formControlName="hobbies"/><br/>
+                <label for="personaldetails">Personal Details : </label>
+                <input type="text" id="personaldetails" formControlName="personaldetails"/><br/>
+                <label for="profilephoto">Profile Photo : </label>
+                <input type="text" id="profilephoto" formControlName="profilephoto"/><br/>
+               
+                <div formGroupName="signup"> <b>Sign Up : </b><br/>
+                    <label for="email">Email: </label>
+                    <input type="text" id="email" formControlName="email"/><br/>
+                    <label for="password">Password: </label>
+                    <input type="text" id="password" formControlName="password"/><br/>
+                    
+
+                <div formGroupName="userroles"> <b>User Roles : </b><br/>
+                  <label for="roleid">Id: </label>
+                  <input type="text" id="roleid" formControlName="roleid"/><br/>
+                </div>
+            </div>  
+                <!-- <button type="submit" [disabled]="!userForm.valid">Submit</button> -->
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Save
+                    </button>
+                    <a routerLink="/admin" class="btn btn-link">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+ 
